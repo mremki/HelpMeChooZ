@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="assets/css/semantic.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/semantic.js"></script>
+        <script type="text/javascript" src="assets/js/ratchet.js"></script>
+        <title>HelpMeChoose</title>
+    </head>
+    <body class="homepage">
+
+        <!-- Page HomePage !-->
+        <div data-role="page" class="homepage" id="one">
+          <br><br><br>
+          <img src="assets/images/logo.png" onclick="app.getStatus();" class="logo" width="60%" height="auto"/>
+          <div class="margin-list-bottom" id="seConnecter" style="display:none;">
+            <div class=" ui horizontal divider" style="color:#000000;">
+            Se connecter via 
+            </div>
+            <div class="ui center aligned">
+              <div class="big ui facebook button" onclick="app.facebookconnect()">
+              <i class="facebook icon"></i>
+              Facebook
+              </div>
+            </div>
+          </div>
+          <div id="start" class="margin-list-bottom ui center aligned" class="espace" style="display:none;">
+            <a href="#three">
+            <div class="big ui inverted button " id="btn-home">
+            Start
+            </div>
+            </a>
+          </div>
+          <div id="profil" class="margin-list-bottom ui center aligned" style="display:none;">
+            <a href="#two">
+            <div class="big ui inverted button" id="btn-home2">
+            Mon profil
+            </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Page Profil !-->
+        <div data-role="page" id="two" class="homepage-account"> 
+            <header>
+                <img src="assets/images/logo.png" width="20%" height="auto" class="img-hd">
+                <div class="btn-return">
+                    <a href="#one">
+                    <div class="ui icon teal button">
+                        <i class="left arrow icon"></i>
+                    </div>
+                    </a>
+                </div>
+            </header>
+            <div class="donnes">
+              <h3 class="title-account">Mon compte</h3>
+              <div class="ui divided very relaxed list">
+                <div class="item">
+                  <div class="content">
+                    <div class="header">Identifiant</div>
+                    <input type="text" name="identifiant" id="identifiant" readonly>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="content">
+                    <div class="header">Email</div>
+                    <input type="text" name="email" id="email" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui center aligned">
+              <div class="medium ui facebook button" onclick="app.facebookdeconnect()">
+              <i class="facebook icon"></i>
+              Se deconnecter
+              </div>
+            </div>
+        </div> 
+
+        <!-- Page Capture !-->
+        <div data-role="page" id="three"> 
+          <div class="ui grid" id="bg-barpicture">
+            <div class="three column row">
+              <div class="column center-img" onclick="app.storeFirstPict('firstImg')"><a href="#four" style="color:#00b5ad;"><i class="big file image outline icon"></i></a></div>
+              <div class="column center-img"><a href="#four" style="color:#00b5ad;"><i class=" big photo icon"></i></a></div>
+              <div class="column center-img"><a href="#one" style="color:#00b5ad;"><i class="big undo icon"></i></a></div>
+            </div>  
+          </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <!-- Page Choose Picture !-->
+        <div data-role="page" id="four" class="homepage-account"> 
+            <header>
+                <img src="assets/images/logo.png" width="20%" height="auto" class="img-hd">
+                <div class="btn-return">
+                    <a href="#three">
+                    <div class="ui icon teal button">
+                        <i class="left arrow icon"></i>
+                    </div>
+                    </a>
+                </div>
+                <div class="btn-accueil">
+                  <div class="ui icon teal button">
+                    <a href="#one" style="color:#f7f7f7;">
+                    <i class="home icon"></i>
+                    </a>
+                  </div>
+                </div>
+            </header>
+            <div class="donnes"> 
+              <a href="#five">
+              <h3 class="titre-img">Premi&egrave;re image</h3>
+              <img id="firstImg" class="ui medium rounded image img-rendu" src="">
+              <div class="ui bottom attached teal button" onclick="app.storeSecondPict('secondImg')">Suivant</div> 
+              </a>
+             </div> 
+        </div>
+
+        <!-- Page Choose Picture two !-->
+        <div data-role="page" id="five" class="homepage-account"> 
+            <header>
+                <img src="assets/images/logo.png" width="20%" height="auto" class="img-hd">
+                <div class="btn-return">
+                    <a href="#four">
+                    <div class="ui icon teal button">
+                        <i class="left arrow icon"></i>
+                    </div>
+                    </a>
+                </div>
+                <div class="btn-accueil">
+                  <div class="ui icon teal button">
+                    <a href="#one" style="color:#f7f7f7;">
+                    <i class="home icon"></i>
+                    </a>
+                  </div>
+                </div>
+            </header>
+            <div class="donnes"> 
+              <a href="#six">
+              <h3 class="titre-img">Deuxi&egrave;me image</h3> 
+                <img id="secondImg" class="ui medium rounded image img-rendu" src="">
+              <div class="ui bottom attached teal button" onclick="app.showPict('firstImg','secondImg')">Suivant</div> 
+              </a>
+             </div> 
+        </div>
+
+        <!-- Page Visualiser les 2 images !-->
+        <div data-role="page" id="six" class="homepage-account"> 
+            <header>
+                <img src="assets/images/logo.png" width="20%" height="auto" class="img-hd">
+                <div class="btn-return">
+                    <a href="#five">
+                    <div class="ui icon teal button">
+                        <i class="left arrow icon"></i>
+                    </div>
+                    </a>
+                </div>
+                <div class="btn-accueil">
+                  <div class="ui icon teal button">
+                    <a href="#one" style="color:#f7f7f7;">
+                    <i class="home icon"></i>
+                    </a>
+                  </div>
+                </div>
+            </header>
+            <div class="donnes">
+              <div class="ui small image">
+                <img id="firstImg_" src="">
+              </div>
+              <div class="ui horizontal divider">
+                  Ou
+              </div>
+              <div class="ui small image">
+                  <img id="secondImg_" src="">
+              </div><br>
+              <div class="margin-list-bottom ui input">
+                  <input id="message" type="text" value="Laquelle tu choisis ?">
+              </div>
+              <div class="margin-list-bottom">   
+                <div class="left ui medium facebook button" onclick="app.pickToShare('firstImg_','secondImg_', 'message')">
+                <i class="facebook icon"></i>
+                Partager
+                </div>
+                
+
+                <div class="btn-accueil ui icon right teal button" onclick="app.contactList()">
+                    <a href="#seven" style="color:#f7f7f7;">
+                    Choisir contacts
+                    </a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- Page List Contact !-->
+        <div data-role="page" id="seven" class="homepage-account"> 
+          <header>
+              <img src="assets/images/logo.png" width="20%" height="auto" class="img-hd">
+              <div class="btn-return">
+                  <a href="#six">
+                  <div class="ui icon teal button">
+                      <i class="left arrow icon"></i>
+                  </div>
+                  </a>
+              </div>
+              <div class="btn-send">
+                  <div onclick="app.sendSms('message')" class="ui icon teal button">
+                      <a href="#eight" style="color:#fff ;text-decoration: none;">
+                      <i class="send icon"></i>
+                      </a>
+                  </div>
+              </div>
+          </header>
+          <div class="donnes"> 
+            <div class="ui divided list" id="contactList">
+            </div>
+          </div>
+          <input type="hidden" id="listcontact">
+        </div>
+
+        <!-- Page Simulation Recevoir Msg !-->
+        <div data-role="page" id="eight" class="homepage-account"> 
+            <header>
+                <img src="assets/images/logo.png" width="20%" height="auto" class="img-hd">
+                <div class="btn-accueil">
+                  <div class="ui icon teal button">
+                    <a href="#one" style="color:#f7f7f7;">
+                    <i class="home icon"></i>
+                    </a>
+                  </div>
+                </div>
+            </header>
+            <div class="donnes">
+              <div class="margin-list-bottom ui input">
+                  <input id="message_Simulation" type="text" value="" readonly>
+              </div><br>
+              <div class="hovered ui small image">
+                <img id="firstImg_Simulation" src="">
+              </div>
+              <div class="ui horizontal divider">
+                  Ou
+              </div>
+              <div class="hovered ui small image">
+                  <img id="secondImg_Simulation" src="">
+              </div><br>
+              <div id="space-btn1" class="ui icon teal button" onclick="app.simulation()">
+                    Envoyez votre choix
+              </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+        $(function (){
+            $('.hovered').on('click', function(){ $(this).addClass('hover').siblings().removeClass('hover');});
+        });
+        </script>
+    </body>
+</html>
